@@ -194,7 +194,7 @@ get_cpu_usage () {
 
 get_memory_usage () {
 	local TOTAL_MEM=$( free -m | awk 'NR==2{print $2}' )
-	local USED_MEM=$( free -m | awk 'NR==3{print $3}' )
+	local USED_MEM=$( free -m | awk 'NR==2{print $3}' )
 	local USED_MEM_PERCENTAGE=$( bc <<< "100 * $USED_MEM / $TOTAL_MEM" )
 	echo "${USED_MEM_PERCENTAGE}"
 }
